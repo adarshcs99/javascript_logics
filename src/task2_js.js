@@ -14,6 +14,7 @@ function dis()
     if(id == "" || pri=="" || name == "")
     {
         alert("please fill all the required feilds");
+        return;
     }
 
 
