@@ -1,8 +1,4 @@
-var mall = {
-    "Price_id":[],
-    "Price_name":[],
-    "Price":[]
-}; 
+var mall = []; // product object
 var table_add = "";
 var index_increase = 0;
 function dis()
@@ -16,13 +12,12 @@ function dis()
         return;
     }
 
-
    if(index_increase!=0)
    {
        let flag=0;
-       for(var i=0;i<mall["Price_id"].length;i++)
+       for(var i=0;i<mall.length;i++)
        {
-           if(mall["Price_id"][i] == id)
+           if(mall[i]["Price_id"] == id)
            {
               alert("id already exsist");
               flag=1;
@@ -31,26 +26,19 @@ function dis()
        }
        if(!flag)
        {
-            mall["Price_id"][index_increase] = id;
-            mall["Price_name"][index_increase] = name;
-            mall["Price"][index_increase] = pri;
-
-            table_add+=`<tr id=${index_increase}>`;
             
-            document.getElementById("table_show").innerHTML = table_add+=`<td>${mall["Price_id"][index_increase]}</td><td>${mall["Price_name"][index_increase]}</td><td>${mall["Price"][index_increase]}</td></tr>`;
+            mall.push({"Price_id":id,"Price_name":name,"Price":pri}); // product items pushed
+            table_add+=`<tr id=${index_increase}>`;
+            document.getElementById("table_show").innerHTML = table_add+=`<td>${id}</td><td>${name}</td><td>${pri}</td></tr>`;
             index_increase+=1;
        }
        
    }
    else{
     
-         mall["Price_id"][index_increase] = id;
-            mall["Price_name"][index_increase] = name;
-            mall["Price"][index_increase] = pri;
-
+            mall.push({"Price_id":id,"Price_name":name,"Price":pri});
             table_add+=`<tr id=${index_increase}>`;
-            
-            document.getElementById("table_show").innerHTML = table_add+=`<td>${mall["Price_id"][index_increase]}</td><td>${mall["Price_name"][index_increase]}</td><td>${mall["Price"][index_increase]}</td></tr>`;
+            document.getElementById("table_show").innerHTML = table_add+=`<td>${id}</td><td>${name}</td><td>${pri}</td></tr>`;
             index_increase+=1;
        
            
